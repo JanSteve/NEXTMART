@@ -5,6 +5,10 @@ import { MOCK_PRODUCTS } from '@/lib/constants';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import ProductGallery from '@/components/product/ProductGallery';
 import { SizeGuideModal } from '@/components/product/SizeGuideModal';
+import { ProductComparisonTable } from '@/components/product/ProductComparisonTable';
+import { CustomerQASection } from '@/components/product/CustomerQASection';
+import { FeatureRatingBreakdown } from '@/components/product/FeatureRatingBreakdown';
+import { InstantBuyModal } from '@/components/product/InstantBuyModal';
 import { Button } from '@/components/ui/Button';
 import {
   Star,
@@ -15,6 +19,7 @@ import {
   Check,
   Sparkles,
   Ruler,
+  Zap,
 } from 'lucide-react';
 import { formatPrice, calcDiscount } from '@/lib/utils';
 import useCartStore from '@/store/cart';
@@ -47,6 +52,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
   const [deliveryChecked, setDeliveryChecked] = useState(true);
   const [added, setAdded] = useState(false);
   const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
+  const [isInstantBuyOpen, setIsInstantBuyOpen] = useState(false);
 
   const addItem = useCartStore((s) => s.addItem);
 
@@ -92,10 +98,10 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
     setTimeout(() => setAdded(false), 2000);
   };
 
-  // Related matching products for frequently bought
-  const relatedProducts = MOCK_PRODUCTS.filter(
-    (p) => p.id !== product.id && p.category === product.category
-  ).slice(0, 2);
+  // Related matching products for comparison & frequently bought
+  const similarProducts = MOCK_PRODUCTS.filter(
+    (p) => p.id !== product.id && (p.category === product.category || p.department === product.department)
+  ).slice(0, 4);
 
   return (
     <div className="min-h-screen bg-neutral-50 py-8">
@@ -106,7 +112,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
             { label: 'Home', href: '/' },
             {
               label: product.category,
-              href: `/category/${product.category.toLowerCase().replace(/\s+/g, '-')}`,
+              href: `/category/${(product.department || product.category).toLowerCase().replace(/\s+/g, '-')}`,
             },
             { label: product.subcategory, href: '#' },
             { label: product.name, href: '#' },
@@ -135,12 +141,12 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                       Fulfilled by NexMart
                     </p>
                     <p className="text-[11px] text-neutral-500">
-                      Strict Quality Inspection &amp; Express Dispatch
+                      Strict Quality Inspection &amp; Express Dispatch from Vadodara Hub
                     </p>
                   </div>
                 </div>
                 <span className="rounded bg-success-50 px-2.5 py-1 text-xs font-semibold text-success-700">
-                  ⚡ 2-Day Priority Delivery
+                  ⚡ 2-Hour Express Eligible
                 </span>
               </div>
             </div>
@@ -152,14 +158,16 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                 <span className="font-display text-sm font-bold uppercase tracking-wider text-primary-600">
                   {product.brand}
                 </span>
-                {product.badges?.map((b) => (
-                  <span
-                    key={b.text}
-                    className="rounded bg-amber-500 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white"
-                  >
-                    {b.text}
-                  </span>
-                ))}
+                <div className="flex items-center gap-1.5">
+                  {product.badges?.map((b) => (
+                    <span
+                      key={b.text}
+                      className="rounded bg-amber-500 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white"
+                    >
+                      {b.text}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Product Title */}
@@ -199,7 +207,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                   )}
                 </div>
                 <p className="mt-1.5 text-xs text-neutral-500">
-                  Inclusive of all GST &amp; import taxes. Free shipping on orders over ₹999.
+                  Inclusive of all GST &amp; import taxes. Free shipping on orders to Vadodara &amp; across India.
                 </p>
               </div>
 
@@ -332,13 +340,13 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                   <div className="mt-3 flex items-center gap-2 rounded-md bg-success-50 p-2.5 text-xs font-medium text-success-800">
                     <Truck className="h-4 w-4 shrink-0 text-success-600" />
                     <span>
-                      Standard Delivery to Vadodara by <strong className="font-bold">2 Business Days</strong>. Cash on Delivery (COD) eligible.
+                      Standard Delivery to Vadodara by <strong className="font-bold">Tomorrow, 2 PM</strong>. Cash on Delivery (COD) eligible.
                     </span>
                   </div>
                 )}
               </div>
 
-              {/* Action Buttons (Add to Cart / Buy Now) */}
+              {/* Action Buttons (Add to Cart / 1-Click Buy Now) */}
               <div className="mt-auto flex flex-col gap-3 border-t border-neutral-100 pt-6 sm:flex-row">
                 <Button
                   size="lg"
@@ -353,16 +361,15 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                     'Add to Cart'
                   )}
                 </Button>
-                <Link href="/checkout" className="flex-1">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    onClick={handleAddToCart}
-                    className="w-full border-2 border-primary-500 text-base font-bold text-primary-600 hover:bg-primary-50"
-                  >
-                    Buy Now
-                  </Button>
-                </Link>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => setIsInstantBuyOpen(true)}
+                  className="flex-1 border-2 border-primary-500 text-base font-bold text-primary-600 hover:bg-primary-50 flex items-center justify-center gap-1.5"
+                >
+                  <Zap className="h-4 w-4 text-amber-500 fill-amber-500" />
+                  <span>1-Click Buy Now</span>
+                </Button>
               </div>
 
               {/* Trust Badges */}
@@ -380,7 +387,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                     <RotateCcw className="h-4 w-4" />
                   </div>
                   <span className="text-[11px] font-bold text-neutral-700">
-                    10-Day Returns
+                    7-Day Returns
                   </span>
                 </div>
                 <div className="flex flex-col items-center gap-1.5 p-2">
@@ -388,7 +395,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                     <Truck className="h-4 w-4" />
                   </div>
                   <span className="text-[11px] font-bold text-neutral-700">
-                    Free Delivery
+                    Vadodara Express
                   </span>
                 </div>
               </div>
@@ -396,12 +403,32 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
           </div>
         </div>
 
-        {/* Frequently Bought Together */}
-        {relatedProducts.length > 0 && (
+        {/* Feature Rating Breakdown */}
+        <div className="mt-8">
+          <FeatureRatingBreakdown category={product.category} rating={product.rating} />
+        </div>
+
+        {/* Side-by-Side Spec Comparison Matrix */}
+        {similarProducts.length > 0 && (
           <div className="mt-8">
-            <FrequentlyBought products={[product, ...relatedProducts]} />
+            <ProductComparisonTable
+              currentProduct={product}
+              similarProducts={similarProducts}
+            />
           </div>
         )}
+
+        {/* Frequently Bought Together */}
+        {similarProducts.length > 0 && (
+          <div className="mt-8">
+            <FrequentlyBought products={[product, ...similarProducts.slice(0, 2)]} />
+          </div>
+        )}
+
+        {/* Customer Questions & Answers */}
+        <div className="mt-8">
+          <CustomerQASection productName={product.name} />
+        </div>
 
         {/* Product Tabs: Description, Specs, Reviews */}
         <div className="mt-8 rounded-2xl border border-neutral-100 bg-white p-6 shadow-card md:p-8">
@@ -431,6 +458,20 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
           if (match) {
             setSelectedOption(match);
           }
+        }}
+      />
+
+      {/* 1-Click Instant Buy Modal */}
+      <InstantBuyModal
+        isOpen={isInstantBuyOpen}
+        onClose={() => setIsInstantBuyOpen(false)}
+        product={{
+          name: product.name,
+          image: activeImage || product.image,
+          price: currentPrice,
+          mrp: currentMrp,
+          variantLabel: `${selectedOption.label}${selectedColor ? ` • ${selectedColor}` : ''}`,
+          brand: product.brand,
         }}
       />
     </div>

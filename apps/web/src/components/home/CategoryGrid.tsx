@@ -10,26 +10,26 @@ export default function CategoryGrid() {
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h2 className="font-display text-xl font-bold text-neutral-900 sm:text-2xl">
-            Featured Categories
+            Explore All 12 Departments
           </h2>
           <p className="mt-1 text-xs text-neutral-500 sm:text-sm">
-            Explore authentic handpicked items across Vadodara &amp; India
+            1,000+ authentic handpicked items across electronics, fashion, groceries, and home essentials
           </p>
         </div>
         <Link
           href="/products"
           className="text-xs font-bold text-primary-600 hover:text-primary-700 underline underline-offset-4"
         >
-          View All →
+          View All Products →
         </Link>
       </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-3 sm:gap-4">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-3 sm:gap-4">
         {NAV_CATEGORIES.map((cat) => (
           <Link
             key={cat.slug}
             href={`/category/${cat.slug}`}
-            className="group flex flex-col items-center gap-2 p-2 rounded-2xl bg-white border border-neutral-100 hover:border-primary-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            className="group flex flex-col items-center gap-2 p-2.5 rounded-2xl bg-white border border-neutral-100 hover:border-primary-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
           >
             <div className="relative aspect-square w-full max-w-[76px] overflow-hidden rounded-2xl bg-neutral-100 shadow-sm transition-transform duration-300 group-hover:scale-105">
               {cat.image ? (

@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ShoppingCart, MapPin, User, Heart, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
+import { ShoppingCart, MapPin, User, Heart, ChevronDown, Package, LogOut, ShieldCheck } from 'lucide-react';
 import { useCartStore } from '@/store/cart';
+import useAuthStore from '@/store/auth';
 import useLanguageStore from '@/store/language';
 import { SearchBar } from './SearchBar';
 import { CategoryNav } from './CategoryNav';
@@ -14,14 +16,19 @@ import { LocationModal } from './LocationModal';
 export default function Header() {
   const items = useCartStore((s) => s.items);
   const itemCount = items.reduce((acc, item) => acc + item.quantity, 0);
+  const { user, isAuthenticated, logout } = useAuthStore();
   const { t, location } = useLanguageStore();
   const [locationModalOpen, setLocationModalOpen] = useState(false);
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-header">
       {/* Top offer announcement bar */}
-      <div className="bg-primary-600 px-4 py-1.5 text-center text-xs font-semibold text-white sm:text-sm">
-        {t.offerBanner}
+      <div className="bg-primary-600 px-4 py-1.5 text-center text-xs font-semibold text-white sm:text-sm flex items-center justify-center gap-2">
+        <span>{t.offerBanner}</span>
+        <span className="hidden md:inline rounded bg-white/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+          Vadodara Express Active
+        </span>
       </div>
 
       {/* Main navigation header */}
@@ -66,14 +73,93 @@ export default function Header() {
             {/* Language Switcher (English / Gujarati / Hindi) */}
             <LanguageSwitcher />
 
-            {/* User Account / Login */}
-            <Link
-              href="/auth/login"
-              className="hidden items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-bold text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-primary-600 sm:flex"
-            >
-              <User className="h-4 w-4 text-neutral-500" />
-              <span className="hidden lg:inline">{t.login}</span>
-            </Link>
+            {/* User Account / Profile Dropdown */}
+            {isAuthenticated && user ? (
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                  className="flex items-center gap-2 rounded-xl border border-neutral-200 bg-neutral-50 px-2.5 py-1.5 text-xs font-bold text-neutral-800 hover:border-primary-400 hover:bg-white transition-all shadow-sm"
+                >
+                  {user.avatar ? (
+                    <div className="relative h-6 w-6 overflow-hidden rounded-full border border-primary-500">
+                      <Image src={user.avatar} alt={user.name || 'User'} fill className="object-cover" />
+                    </div>
+                  ) : (
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary-600 text-white text-[10px]">
+                      {(user.firstName || user.name || 'U')[0]}
+                    </div>
+                  )}
+                  <span className="hidden max-w-[90px] truncate sm:inline">
+                    {user.firstName || user.name?.split(' ')[0] || 'Account'}
+                  </span>
+                  <ChevronDown className="h-3 w-3 text-neutral-400" />
+                </button>
+
+                {/* Account Dropdown Menu */}
+                {userDropdownOpen && (
+                  <>
+                    <div
+                      className="fixed inset-0 z-40"
+                      onClick={() => setUserDropdownOpen(false)}
+                    />
+                    <div className="absolute right-0 top-full z-50 mt-2 w-56 rounded-2xl border border-neutral-100 bg-white p-2 shadow-xl animate-fade-in">
+                      <div className="border-b border-neutral-100 px-3 py-2">
+                        <p className="text-xs font-bold text-neutral-900">{user.name || 'Google User'}</p>
+                        <p className="text-[11px] text-neutral-500 truncate">{user.email}</p>
+                      </div>
+                      <div className="py-1">
+                        <Link
+                          href="/account"
+                          onClick={() => setUserDropdownOpen(false)}
+                          className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold text-neutral-700 hover:bg-neutral-50 hover:text-primary-600"
+                        >
+                          <User className="h-4 w-4 text-neutral-400" />
+                          <span>Your Profile</span>
+                        </Link>
+                        <Link
+                          href="/account/orders"
+                          onClick={() => setUserDropdownOpen(false)}
+                          className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold text-neutral-700 hover:bg-neutral-50 hover:text-primary-600"
+                        >
+                          <Package className="h-4 w-4 text-neutral-400" />
+                          <span>Your Orders &amp; Invoices</span>
+                        </Link>
+                        <Link
+                          href="/account/wishlist"
+                          onClick={() => setUserDropdownOpen(false)}
+                          className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold text-neutral-700 hover:bg-neutral-50 hover:text-primary-600"
+                        >
+                          <Heart className="h-4 w-4 text-neutral-400" />
+                          <span>Wishlist</span>
+                        </Link>
+                      </div>
+                      <div className="border-t border-neutral-100 pt-1">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            logout();
+                            setUserDropdownOpen(false);
+                          }}
+                          className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold text-rose-600 hover:bg-rose-50"
+                        >
+                          <LogOut className="h-4 w-4" />
+                          <span>Sign Out</span>
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            ) : (
+              <Link
+                href="/auth/login"
+                className="flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-bold text-neutral-800 transition-colors hover:border-primary-500 hover:bg-primary-50 hover:text-primary-600"
+              >
+                <User className="h-4 w-4 text-primary-600" />
+                <span>{t.login}</span>
+              </Link>
+            )}
 
             {/* Wishlist */}
             <Link
@@ -84,18 +170,10 @@ export default function Header() {
               <Heart className="h-5 w-5" />
             </Link>
 
-            {/* Become Seller */}
-            <Link
-              href="/sell"
-              className="hidden rounded-lg px-2.5 py-1.5 text-xs font-bold text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-primary-600 xl:block"
-            >
-              {t.becomeSeller}
-            </Link>
-
             {/* Cart Button */}
             <Link
               href="/cart"
-              className="relative flex items-center gap-1.5 rounded-xl bg-neutral-900 px-3 py-2 text-xs font-bold text-white transition-all hover:bg-primary-600 hover:shadow-md"
+              className="relative flex items-center gap-1.5 rounded-xl bg-neutral-900 px-3.5 py-2 text-xs font-bold text-white transition-all hover:bg-primary-600 hover:shadow-md"
               aria-label={`Shopping cart with ${itemCount} items`}
             >
               <ShoppingCart className="h-4 w-4" />
