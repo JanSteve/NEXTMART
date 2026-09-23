@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
+    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-plus-jakarta: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+    --font-jetbrains-mono: 'JetBrains Mono', monospace;
+
     --background: #FFFFFF;
     --foreground: #111827;
     --card: #FFFFFF;
@@ -60,34 +66,5 @@
     );
     background-size: 200% 100%;
     animation: shimmer 2s ease-in-out infinite;
-  }
-
-  /* Price strikethrough */
-  .price-strike {
-    text-decoration: line-through;
-    text-decoration-color: #9CA3AF;
-  }
-
-  /* Line clamp */
-  .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
-  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-
-  /* Gradient text */
-  .text-gradient {
-    background: linear-gradient(135deg, #5B4FE9, #818CF8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
