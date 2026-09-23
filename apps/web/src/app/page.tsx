@@ -8,8 +8,10 @@ import { MOCK_PRODUCTS, BRANDS } from '@/lib/constants';
 import { ArrowRight, Zap, TrendingUp, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import useLanguageStore from '@/store/language';
 
 export default function Home() {
+  const { t } = useLanguageStore();
   const topPicks = MOCK_PRODUCTS.slice(0, 8);
   const trending = MOCK_PRODUCTS.filter((p) => p.category === 'Electronics').slice(0, 4);
   const fashionPicks = MOCK_PRODUCTS.filter((p) => p.category === 'Fashion').slice(0, 4);
@@ -40,14 +42,14 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <Sparkles className="h-5 w-5 text-primary-500" />
               <h2 className="font-display text-xl font-bold text-neutral-900 sm:text-2xl">
-                Top Picks for You
+                {t.topPicks}
               </h2>
             </div>
             <Link
               href="/products"
               className="flex items-center gap-1 text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
             >
-              View All <ArrowRight className="h-4 w-4" />
+              {t.viewAll} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-4">
@@ -62,7 +64,7 @@ export default function Home() {
       <section className="border-y border-neutral-100 bg-neutral-50 py-10">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="mb-6 text-center font-display text-xl font-bold text-neutral-900">
-            Brands We Love
+            {t.brandsWeLove}
           </h2>
           <div className="scrollbar-hide flex items-center gap-8 overflow-x-auto px-4 pb-2">
             {BRANDS.map((brand) => (
@@ -94,14 +96,14 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <TrendingUp className="h-5 w-5 text-primary-500" />
               <h2 className="font-display text-xl font-bold text-neutral-900 sm:text-2xl">
-                Trending in Electronics
+                {t.trendingElectronics}
               </h2>
             </div>
             <Link
               href="/category/electronics"
               className="flex items-center gap-1 text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
             >
-              View All <ArrowRight className="h-4 w-4" />
+              {t.viewAll} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4">
@@ -119,14 +121,14 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary-500" />
               <h2 className="font-display text-xl font-bold text-neutral-900 sm:text-2xl">
-                Fashion Picks
+                {t.fashionPicks}
               </h2>
             </div>
             <Link
               href="/category/fashion"
               className="flex items-center gap-1 text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
             >
-              View All <ArrowRight className="h-4 w-4" />
+              {t.viewAll} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4">
@@ -145,14 +147,13 @@ export default function Home() {
               ⭐ NexMart Plus
             </span>
             <h2 className="mt-4 font-display text-2xl font-bold text-white sm:text-3xl">
-              Unlimited free delivery &amp; exclusive deals
+              {t.plusTitle}
             </h2>
             <p className="mt-3 text-neutral-400">
-              Join NexMart Plus for ₹299/month. Get free delivery on all orders, early access to
-              sales, and extra cashback on every purchase.
+              {t.plusDesc}
             </p>
             <button className="mt-6 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 px-8 py-3 text-sm font-bold text-neutral-900 shadow-lg transition-all hover:from-amber-400 hover:to-amber-500 hover:shadow-xl">
-              Start Free Trial →
+              {t.plusButton}
             </button>
           </div>
         </div>
