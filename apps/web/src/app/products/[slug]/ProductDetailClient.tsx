@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { MOCK_PRODUCTS } from '@/lib/constants';
+import { useState, useEffect } from 'react';
+import { ALL_PRODUCTS, type MockProduct } from '@/lib/products-catalog';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import ProductGallery from '@/components/product/ProductGallery';
 import { SizeGuideModal } from '@/components/product/SizeGuideModal';
@@ -9,6 +9,7 @@ import { ProductComparisonTable } from '@/components/product/ProductComparisonTa
 import { CustomerQASection } from '@/components/product/CustomerQASection';
 import { FeatureRatingBreakdown } from '@/components/product/FeatureRatingBreakdown';
 import { InstantBuyModal } from '@/components/product/InstantBuyModal';
+import { RecentlyViewed, trackRecentlyViewed } from '@/components/product/RecentlyViewed';
 import { Button } from '@/components/ui/Button';
 import {
   Star,
@@ -31,7 +32,13 @@ import Link from 'next/link';
 
 export default function ProductDetailClient({ slug }: { slug: string }) {
   const product =
-    MOCK_PRODUCTS.find((p) => p.slug === slug) || MOCK_PRODUCTS[0];
+    ALL_PRODUCTS.find((p) => p.slug === slug) || ALL_PRODUCTS[0];
+
+  useEffect(() => {
+    if (product?.slug) {
+      trackRecentlyViewed(product.slug);
+    }
+  }, [product?.slug]);
 
   // Default variant option
   const initialOption =
@@ -99,7 +106,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
   };
 
   // Related matching products for comparison & frequently bought
-  const similarProducts = MOCK_PRODUCTS.filter(
+  const similarProducts = ALL_PRODUCTS.filter(
     (p) => p.id !== product.id && (p.category === product.category || p.department === product.department)
   ).slice(0, 4);
 
@@ -421,7 +428,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
         {/* Frequently Bought Together */}
         {similarProducts.length > 0 && (
           <div className="mt-8">
-            <FrequentlyBought products={[product, ...similarProducts.slice(0, 2)]} />
+            <FrequentlyBought mainProduct={product} similarProducts={similarProducts} />
           </div>
         )}
 
@@ -443,6 +450,11 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
               />
             }
           />
+        </div>
+
+        {/* Recently Viewed & Personalized Recommendations */}
+        <div className="mt-12">
+          <RecentlyViewed currentSlug={product.slug} />
         </div>
       </div>
 
