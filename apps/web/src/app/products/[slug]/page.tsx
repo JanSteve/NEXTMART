@@ -117,9 +117,13 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
         {/* Main Product Container */}
         <div className="mt-4 rounded-2xl border border-neutral-100 bg-white p-6 shadow-card md:p-8">
           <div className="flex flex-col gap-10 lg:flex-row xl:gap-14">
-            {/* Gallery Left (55%) */}
+            {/* Gallery Left (52%) */}
             <div className="w-full shrink-0 lg:w-[52%]">
-              <ProductGallery images={galleryImages} />
+              <ProductGallery
+                images={galleryImages}
+                selectedImage={activeImage}
+                onImageChange={setActiveImage}
+              />
 
               {/* Fulfilled & Trust Markers */}
               <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-neutral-100 bg-neutral-50 p-4">
