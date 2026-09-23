@@ -1,0 +1,31 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+
+model Vendor {
+  id String @id @default(uuid())
+  userId String @unique
+  businessName String
+  gstNumber String?
+  status String @default("PENDING")
+  commissionRate Float @default(10.0)
+  payouts VendorPayout[]
+  commissions VendorCommission[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model VendorPayout {
+  id String @id @default(uuid())
+  vendorId String
+  vendor Vendor @relation(fields: [vendorId], references: [id])
+  amount Float
+  status String @default("PROCESSING")
+  createdAt DateTime @default(now())
+}
+model VendorCommission {
+  id String @id @default(uuid())
+  vendorId String
+  vendor Vendor @relation(fields: [vendorId], references: [id])
+  orderId String
+  amount Float
+  createdAt DateTime @default(now())
+}

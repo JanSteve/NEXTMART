@@ -1,0 +1,17 @@
+import { Router } from 'express';
+import { AuthController } from '../controllers/auth.controller';
+import { authenticate } from '../middleware/auth';
+const router = Router();
+router.post('/register', AuthController.register);
+router.post('/login', AuthController.login);
+router.post('/login/google', AuthController.googleLogin);
+router.post('/login/otp', AuthController.sendOtp);
+router.post('/login/otp/verify', AuthController.verifyOtp);
+router.post('/refresh', AuthController.refresh);
+router.get('/me', authenticate, AuthController.me);
+router.put('/profile', authenticate, AuthController.updateProfile);
+router.get('/addresses', authenticate, AuthController.getAddresses);
+router.post('/addresses', authenticate, AuthController.addAddress);
+router.put('/addresses/:id', authenticate, AuthController.updateAddress);
+router.delete('/addresses/:id', authenticate, AuthController.deleteAddress);
+export default router;

@@ -1,0 +1,48 @@
+{
+  "name": "nexmart-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NexMart — India's Next-Generation E-Commerce Marketplace",
+  "author": "InfinityForge / R. Jan Steve Daniel",
+  "license": "UNLICENSED",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "services/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter=@nexmart/web",
+    "dev:vendor": "turbo run dev --filter=@nexmart/vendor-portal",
+    "dev:admin": "turbo run dev --filter=@nexmart/admin",
+    "dev:services": "turbo run dev --filter='./services/*'",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "test": "turbo run test",
+    "test:unit": "turbo run test:unit",
+    "test:integration": "turbo run test:integration",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "db:migrate": "turbo run db:migrate --filter='./services/*'",
+    "db:seed": "tsx scripts/seed.ts",
+    "db:reset": "turbo run db:reset --filter='./services/*'",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:reset": "docker-compose down -v && docker-compose up -d"
+  },
+  "devDependencies": {
+    "turbo": "^2.1.0",
+    "typescript": "^5.5.0",
+    "prettier": "^3.3.0",
+    "eslint": "^8.57.0",
+    "tsx": "^4.16.0",
+    "@types/node": "^20.14.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "packageManager": "npm@10.8.0"
+}
