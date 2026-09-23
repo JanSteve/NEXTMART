@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { MOCK_PRODUCTS } from '@/lib/constants';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import ProductGallery from '@/components/product/ProductGallery';
+import { SizeGuideModal } from '@/components/product/SizeGuideModal';
 import { Button } from '@/components/ui/Button';
 import {
   Star,
@@ -17,6 +18,7 @@ import {
   Sparkles,
   Info,
   CheckCircle2,
+  Ruler,
 } from 'lucide-react';
 import { formatPrice, calcDiscount } from '@/lib/utils';
 import useCartStore from '@/store/cart';
@@ -45,9 +47,10 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
     product.colors?.[0]?.name || ''
   );
   const [activeImage, setActiveImage] = useState<string | null>(null);
-  const [pincode, setPincode] = useState('');
-  const [deliveryChecked, setDeliveryChecked] = useState(false);
+  const [pincode, setPincode] = useState('390001');
+  const [deliveryChecked, setDeliveryChecked] = useState(true);
   const [added, setAdded] = useState(false);
+  const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
 
   const addItem = useCartStore((s) => s.addItem);
 
@@ -214,9 +217,24 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                         {selectedOption.label}
                       </span>
                     </label>
-                    <span className="text-xs text-neutral-400">
-                      {selectedOption.stockQty} in stock
-                    </span>
+                    <div className="flex items-center gap-3">
+                      {(product.category === 'Fashion' ||
+                        product.subcategory?.toLowerCase().includes('dress') ||
+                        product.subcategory?.toLowerCase().includes('kurta') ||
+                        product.subcategory?.toLowerCase().includes('shoe') ||
+                        product.subcategory?.toLowerCase().includes('jeans')) && (
+                        <button
+                          type="button"
+                          onClick={() => setIsSizeGuideOpen(true)}
+                          className="flex items-center gap-1 text-xs font-bold text-primary-600 hover:text-primary-700 underline underline-offset-2"
+                        >
+                          <Ruler className="h-3.5 w-3.5" /> Size Guide &amp; Fit Finder
+                        </button>
+                      )}
+                      <span className="text-xs text-neutral-400">
+                        {selectedOption.stockQty} in stock
+                      </span>
+                    </div>
                   </div>
 
                   <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
@@ -404,6 +422,21 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           />
         </div>
       </div>
+
+      {/* Interactive Size Guide Modal */}
+      <SizeGuideModal
+        isOpen={isSizeGuideOpen}
+        onClose={() => setIsSizeGuideOpen(false)}
+        category={product.subcategory || product.category}
+        onSelectSize={(sizeName) => {
+          const match = product.variantOptions?.find(
+            (v) => v.label.toLowerCase() === sizeName.toLowerCase()
+          );
+          if (match) {
+            setSelectedOption(match);
+          }
+        }}
+      />
     </div>
   );
 }
