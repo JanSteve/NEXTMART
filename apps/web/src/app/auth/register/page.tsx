@@ -82,13 +82,13 @@ export default function RegisterPage() {
 
     setLoading(true);
     setTimeout(() => {
-      const fullName = `${firstName || "Jan"} ${lastName || "User"}`.trim();
+      const fullName = `${firstName || "Customer"} ${lastName || ""}`.trim();
       login(
         {
           id: `usr-${Date.now()}`,
           name: fullName,
-          firstName: firstName || "Jan",
-          lastName: lastName || "User",
+          firstName: firstName || "Customer",
+          lastName: lastName || "",
           email: email || "customer@nexmart.in",
           phone: phone || "+91 98765 43210",
           role: "customer",
@@ -245,7 +245,7 @@ export default function RegisterPage() {
             <div className="grid grid-cols-2 gap-3">
               <Input
                 label="First Name"
-                placeholder="Jan Steve"
+                placeholder="Rahul"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 className="bg-neutral-50 focus:bg-white"
@@ -253,7 +253,7 @@ export default function RegisterPage() {
               />
               <Input
                 label="Last Name"
-                placeholder="Daniel"
+                placeholder="Patel"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 className="bg-neutral-50 focus:bg-white"

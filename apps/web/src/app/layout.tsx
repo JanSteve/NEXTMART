@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "India's smartest marketplace. Discover millions of products from trusted sellers with fast delivery to Vadodara & nationwide, easy returns, and secure payments.",
   keywords: ['ecommerce', 'online shopping', 'NexMart', 'Vadodara', 'India', 'marketplace'],
-  authors: [{ name: 'InfinityForge / R. Jan Steve Daniel' }],
+  authors: [{ name: 'NexMart Commerce' }],
   openGraph: {
     type: 'website',
     locale: 'en_IN',

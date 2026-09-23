@@ -51,8 +51,8 @@ export async function signInWithGoogle(): Promise<{
     console.warn('Firebase popup handled with verified local fallback:', error?.message);
     return {
       id: `google-user-${Date.now()}`,
-      name: 'R. Jan Steve Daniel',
-      email: 'janstevedaniel@gmail.com',
+      name: 'Google User',
+      email: 'user@gmail.com',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop',
       token: `demo-firebase-jwt-token-${Date.now()}`,
     };

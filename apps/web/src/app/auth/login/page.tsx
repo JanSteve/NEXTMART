@@ -85,12 +85,14 @@ export default function LoginPage() {
 
     setLoading(true);
     setTimeout(() => {
+      const emailName = email.split('@')[0] || 'Customer';
+      const formattedName = emailName.charAt(0).toUpperCase() + emailName.slice(1);
       login(
         {
-          id: 'user-001',
-          name: 'R. Jan Steve Daniel',
-          firstName: 'Jan Steve',
-          lastName: 'Daniel',
+          id: `user-${Date.now()}`,
+          name: formattedName,
+          firstName: formattedName,
+          lastName: 'User',
           email: email,
           phone: '+91 98765 43210',
           role: 'CUSTOMER',
@@ -100,7 +102,7 @@ export default function LoginPage() {
       toast({
         type: 'success',
         title: 'Login Successful',
-        message: 'Welcome back to NexMart!',
+        message: `Welcome back, ${formattedName}!`,
       });
       router.push(redirectUrl);
       setLoading(false);
@@ -135,11 +137,11 @@ export default function LoginPage() {
     setTimeout(() => {
       login(
         {
-          id: 'user-phone-001',
-          name: 'Jan Steve Daniel',
-          firstName: 'Jan Steve',
-          lastName: 'Daniel',
-          email: 'jansteve@nexmart.in',
+          id: `user-phone-${Date.now()}`,
+          name: `Vadodara Shopper (${phone.slice(-4)})`,
+          firstName: 'Shopper',
+          lastName: phone.slice(-4),
+          email: `user${phone.slice(-4)}@nexmart.in`,
           phone: `+91 ${phone}`,
           role: 'CUSTOMER',
         },
@@ -385,22 +387,22 @@ export default function LoginPage() {
               onClick={() => {
                 login(
                   {
-                    id: 'user-001',
-                    name: 'R. Jan Steve Daniel',
-                    firstName: 'Jan Steve',
-                    lastName: 'Daniel',
-                    email: 'janstevedaniel@gmail.com',
+                    id: 'demo-user-001',
+                    name: 'Demo Customer',
+                    firstName: 'Demo',
+                    lastName: 'Customer',
+                    email: 'customer@nexmart.in',
                     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop',
                     role: 'CUSTOMER',
                   },
                   'token-demo-123'
                 );
-                toast({ type: 'success', title: 'Logged in as Jan Steve Daniel' });
+                toast({ type: 'success', title: 'Logged in as Demo Customer' });
                 router.push(redirectUrl);
               }}
               className="mt-1.5 text-xs font-bold text-primary-600 underline hover:text-primary-700"
             >
-              Sign In as Jan Steve Daniel (Vadodara)
+              Sign In as Demo Customer (Vadodara)
             </button>
           </div>
 

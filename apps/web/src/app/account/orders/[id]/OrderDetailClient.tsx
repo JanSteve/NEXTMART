@@ -19,21 +19,23 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { toast } from "@/components/ui/Toast";
+import useAuthStore from "@/store/auth";
 
 export default function OrderDetailClient({ id }: { id: string }) {
   const [showInvoice, setShowInvoice] = useState(false);
+  const { user } = useAuthStore();
 
   const orderData = {
     id: id || "ORD-98421",
     date: "Today, 10:45 AM",
     expectedDelivery: "Tomorrow by 2:00 PM",
     deliveryAddress: {
-      name: "R. Jan Steve Daniel",
-      street: "B-402, Samrudhi Heights, Near Inorbit Mall",
-      area: "Alkapuri / Gorwa",
+      name: user?.name || "Verified Customer",
+      street: "B-402, Samrudhi Residency, Near Inorbit Mall",
+      area: "Alkapuri / Waghodia",
       city: "Vadodara, Gujarat",
       pincode: "390001",
-      phone: "+91 98765 43210",
+      phone: user?.phone || "+91 98765 43210",
     },
     deliveryPartner: {
       name: "Suresh Patel",
