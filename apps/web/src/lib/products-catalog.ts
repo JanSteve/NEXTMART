@@ -1,6 +1,6 @@
 // ============================================================================
 // NexMart — 1,000+ Multi-Category Product Catalog Engine
-// Complete Amazon-Level Department Catalog with Authentic Specifications
+// Complete Amazon-Level Department Catalog with Curated Subcategory Photos
 // ============================================================================
 
 export type VariantType =
@@ -195,86 +195,357 @@ export const AMAZON_DEPARTMENTS: Department[] = [
   },
 ];
 
-// ── Curated High-Definition Unsplash Photo Bank by Category ──────────────────
+// ── Curated Authentic Photo Bank by Exact Subcategory ──────────────────────
 
-const PHOTO_BANK: Record<string, string[]> = {
-  electronics: [
+const SUBCATEGORY_PHOTO_BANK: Record<string, string[]> = {
+  // Electronics
+  'Smartphones': [
+    'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1580910051074-3eb694886505?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Laptops & MacBooks': [
     'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Audio & Headphones': [
+    'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Smart Watches': [
     'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1563770660941-20978e870e26?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=800&auto=format&fit=crop',
   ],
-  fashion: [
+  'Smart TVs': [
+    'https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1558888401-3cc1de77652d?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Tablets & iPads': [
+    'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1561154464-82e9adf32764?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Cameras': [
+    'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Gaming Consoles': [
+    'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?q=80&w=800&auto=format&fit=crop',
+  ],
+  'PC Accessories': [
+    'https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?q=80&w=800&auto=format&fit=crop',
+  ],
+
+  // Women's Fashion & Ethnic
+  'Floral Dresses': [
     'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Anarkali & Silk Kurtas': [
+    'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Banarasi Sarees': [
+    'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Designer Lehengas': [
+    'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Footwear & Heels': [
     'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1562273138-f46be4ebdf33?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?q=80&w=800&auto=format&fit=crop',
   ],
-  'mens-fashion': [
-    'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop',
+  'Handbags & Totes': [
+    'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Fashion Jewelry': [
+    'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop',
+  ],
+
+  // Men's Fashion & Streetwear
+  'Casual & Formal Shirts': [
     'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=800&auto=format&fit=crop',
   ],
-  'home-kitchen': [
-    'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop',
+  'Denim Jeans & Trousers': [
+    'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Sneakers & Formal Shoes': [
+    'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1614252369475-531eba835eb1?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Kurta Pajamas & Ethnic': [
+    'https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Luxury Watches': [
+    'https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1526045478516-99145907023c?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Activewear': [
+    'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Wallets & Belts': [
+    'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop',
+  ],
+
+  // Home, Kitchen & Furniture
+  'Non-Stick Cookware': [
     'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1585515320310-259814833e62?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Air Fryers & Microwaves': [
+    'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Espresso & Coffee Machines': [
     'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Living Room Sofas': [
     'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=800&auto=format&fit=crop',
   ],
-  beauty: [
-    'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop',
+  'Orthopedic Mattresses': [
+    'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Dinnerware Sets': [
+    'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Lamps & Home Decor': [
+    'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800&auto=format&fit=crop',
+  ],
+
+  // Beauty, Skincare & Grooming
+  'Vitamin C & Anti-Aging Serums': [
+    'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1608248597359-07b99c1598a0?q=80&w=800&auto=format&fit=crop',
   ],
-  grocery: [
-    'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop',
+  'Luxury Perfumes & EDP': [
+    'https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800&auto=format&fit=crop',
   ],
-  sports: [
-    'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop',
+  'Beard Trimmers & Shavers': [
+    'https://images.unsplash.com/photo-1621607512214-68297480165e?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Hair Styling & Shampoos': [
+    'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Makeup Palettes & Lipsticks': [
+    'https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Organic Face Washes': [
+    'https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=800&auto=format&fit=crop',
+  ],
+
+  // Grocery, Gourmet & Indian Sweets
+  'Premium Dry Fruits & Nuts': [
+    'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Pure Cow Ghee & Cold Pressed Oils': [
+    'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1589927986089-35812388d1f4?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Organic Spices & Masalas': [
+    'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1509358271058-acd22cc93898?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Artisanal Coffee & Tea': [
+    'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Vadodara Sweets & Farsan': [
+    'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Breakfast Cereals & Granola': [
+    'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=800&auto=format&fit=crop',
+  ],
+
+  // Sports, Fitness & Outdoors
+  'Adjustable Dumbbells & Barbells': [
     'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Motorized Treadmills': [
+    'https://images.unsplash.com/photo-1578762560042-46ad127c95ea?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop',
   ],
-  books: [
+  'Eco Yoga Mats': [
+    'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=800&auto=format&fit=crop',
+  ],
+  'English Willow Cricket Bats': [
+    'https://images.unsplash.com/photo-1531415074868-036b1c57e3ce?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=800&auto=format&fit=crop',
+  ],
+  'FIFA Footballs': [
+    'https://images.unsplash.com/photo-1511886929837-354d827aae26?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Hybrid Bicycles & Gear': [
+    'https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?q=80&w=800&auto=format&fit=crop',
+  ],
+
+  // Books, Kindle & Audibles
+  'National Bestsellers': [
     'https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Personal Finance & Self-Help': [
     'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop',
   ],
-  'toys-games': [
-    'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1508873696983-2df5293cb32b?q=80&w=800&auto=format&fit=crop',
+  'Tech, AI & Programming': [
+    'https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Exam Preparation (UPSC, GATE)': [
+    'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Indian Mythology & Fiction': [
+    'https://images.unsplash.com/photo-1476275466078-4007374efbbe?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1463320726281-696a485928c7?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Children Story Books': [
+    'https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop',
+  ],
+
+  // Toys, Games & Baby Care
+  'STEM Educational Robotics': [
+    'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1535378620166-273708d44e4c?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Remote Control High-Speed Drones': [
+    'https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?q=80&w=800&auto=format&fit=crop',
+  ],
+  'LEGO Architecture Sets': [
     'https://images.unsplash.com/photo-1587654780291-39c9404d746b?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1560969184-10fe8719e047?q=80&w=800&auto=format&fit=crop',
   ],
-  automotive: [
+  'Premium Baby Strollers': [
+    'https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1508873696983-2df5293cb32b?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Eco Diapers & Wipes': [
+    'https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Wooden Board Games': [
+    'https://images.unsplash.com/photo-1586165368502-1bad197a6461?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=800&auto=format&fit=crop',
+  ],
+
+  // Automotive & Industrial Hardware
+  'Smart 4K Dashcams': [
+    'https://images.unsplash.com/photo-1508974239320-0a029497e820?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=800&auto=format&fit=crop',
+  ],
+  'DOT Certified Riding Helmets': [
+    'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Bosch Cordless Drill Sets': [
+    'https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Car High-Pressure Washers': [
+    'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Tyre Inflators & Emergency Kits': [
+    'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop',
   ],
-  health: [
+
+  // Health, Nutrition & Pharmacy
+  '100% Whey Protein Isolate': [
+    'https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Daily Multivitamins & Zinc': [
     'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1550572017-edd951aa8f72?q=80&w=800&auto=format&fit=crop',
   ],
-  office: [
+  'Digital Blood Pressure Monitors': [
+    'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1583912267670-6575ad362e49?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Ayurvedic Immunity Boosters': [
+    'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop',
+  ],
+  'First Aid Medical Kits': [
+    'https://images.unsplash.com/photo-1603398938378-e54eab446dde?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=800&auto=format&fit=crop',
+  ],
+
+  // Office Supplies & Ergonomics
+  'High-Back Ergonomic Chairs': [
+    'https://images.unsplash.com/photo-1580481077111-9257d0f9a2b5?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1505797149-43b0069ec26b?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Motorized Standing Desks': [
     'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?q=80&w=800&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Premium Fountain Pens': [
+    'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1585336261026-7f5ef95c3735?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Wireless Laser Printers': [
+    'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800&auto=format&fit=crop',
+  ],
+  'Leather Notebooks & Organizers': [
+    'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=800&auto=format&fit=crop',
   ],
 };
 
@@ -293,6 +564,348 @@ const BRAND_DICTIONARY: Record<string, string[]> = {
   automotive: ['Bosch', '70mai', 'Steelbird', 'Vega', 'Black+Decker', 'Amaron', '3M Auto', 'Resqtech'],
   health: ['Optimum Nutrition (ON)', 'MuscleBlaze', 'Himalaya', 'Dr. Morepen', 'Accu-Chek', 'Fast&Up', 'HealthKart'],
   office: ['Green Soul', 'Featherlite', 'Parker', 'Linc', 'Casio', 'Logitech', 'Classmate', 'AmazonBasics'],
+};
+
+// ── Subcategory Specific Product Titles ───────────────────────────────────────
+
+const SUBCATEGORY_NAME_TEMPLATES: Record<string, string[]> = {
+  // Electronics
+  'Smartphones': [
+    'Pro AI 5G Smartphone (120Hz Dynamic AMOLED)',
+    'Ultra Fast 5G Phone with 108MP Camera',
+    'Slim Titanium Flagship Smartphone 256GB',
+  ],
+  'Laptops & MacBooks': [
+    '14-inch Ultra-Slim Laptop (Intel i7, 16GB RAM, 512GB SSD)',
+    'Pro Studio Creator Laptop (16-inch 3K OLED Display)',
+    'Lightweight Thin Laptop with 18-Hour Battery',
+  ],
+  'Audio & Headphones': [
+    'Wireless Active Noise Cancelling Headphones (40H Playtime)',
+    'Spatial Audio True Wireless Earbuds with ANC',
+    'Studio Pro Over-Ear Bluetooth Headset with Mic',
+  ],
+  'Smart Watches': [
+    'AMOLED Display Bluetooth Calling Smartwatch with SpO2',
+    'Rugged Outdoor GPS Multisport Smartwatch',
+    'Stainless Steel Fitness Tracker Watch with Heart Rate',
+  ],
+  'Smart TVs': [
+    '55-inch 4K Ultra HD Smart Google TV with Dolby Vision',
+    '65-inch QLED 120Hz Bezel-Less Android Smart TV',
+    '43-inch Frameless Full HD Smart LED TV',
+  ],
+  'Tablets & iPads': [
+    '11-inch 2K Touchscreen Tablet with Stylus Pen Support',
+    'Octa-Core LTE Calling Entertainment Tablet 128GB',
+  ],
+  'Cameras': [
+    'Mirrorless 4K 60FPS Photography & Vlogging Camera',
+    'Full-Frame 32MP Digital DSLR Camera with 24-70mm Lens',
+  ],
+  'Gaming Consoles': [
+    'Next-Gen Wireless Gaming Controller with Haptic Feedback',
+    'High-Precision Dual Analog Wireless Console Gamepad',
+  ],
+  'PC Accessories': [
+    'RGB Hot-Swappable Mechanical Gaming Keyboard',
+    'Ergonomic Multi-Device Wireless Mouse (4000 DPI)',
+    '1080p 60FPS Streaming Webcam with Dual Noise Reduction Mic',
+  ],
+
+  // Women's Fashion
+  'Floral Dresses': [
+    'French Floral Tiered A-Line Summer Maxi Dress',
+    'Smocked Bodice Chiffon Flared Floral Midi Dress',
+    'Sweetheart Neckline Resort Floral Print Sundress',
+  ],
+  'Anarkali & Silk Kurtas': [
+    'Zari Embroidered Rayon Anarkali Kurta & Pant Set',
+    'Chanderi Silk Flared Kurta with Organza Dupatta',
+    'Festive Gota Patti Rayon Calf-Length Kurta Ensemble',
+  ],
+  'Banarasi Sarees': [
+    'Banarasi Katan Silk Handloom Zari Work Saree',
+    'Traditional Woven Art Silk Saree with Blouse Piece',
+    'Royal Zari Border Wedding Banarasi Silk Saree',
+  ],
+  'Designer Lehengas': [
+    'Handcrafted Sequin Embroidered Semi-Stitched Lehenga Choli',
+    'Festive Flared Silk Lehenga with Heavy Dupatta',
+  ],
+  'Footwear & Heels': [
+    'Cushioned Block Heel Partywear Mules',
+    'Pointed Toe Stiletto Pumps with Ankle Strap',
+    'Embroidered Ethnic Jutti Footwear with Soft Insole',
+  ],
+  'Handbags & Totes': [
+    'Structured Vegan Leather Tote Bag with Inner Pouch',
+    'Designer Multi-Compartment Shoulder Hobo Bag',
+  ],
+  'Fashion Jewelry': [
+    'Kundan Pearl Choker Necklace Set with Drop Earrings',
+    '24K Gold Plated Austrian Crystal Bangles Set',
+  ],
+
+  // Men's Fashion
+  'Casual & Formal Shirts': [
+    '100% Oxford Cotton Slim Fit Casual Shirt',
+    'Pure Linen Breathable Mandarin Collar Formal Shirt',
+    'Classic Regular Fit Spread Collar Cotton Shirt',
+  ],
+  'Denim Jeans & Trousers': [
+    '511 Slim Fit Stretch Denim Jeans',
+    'Tapered Regular Fit Washed Indigo Denim Jeans',
+    'Classic Mid-Rise Stretch Cotton Chino Trousers',
+  ],
+  'Sneakers & Formal Shoes': [
+    'Air Cushion Lightweight Streetwear Sneakers',
+    'Handcrafted Genuine Leather Oxford Formal Brogues',
+    'Slip-On Memory Foam Casual Walking Shoes',
+  ],
+  'Kurta Pajamas & Ethnic': [
+    'Pure Cotton Solid Festive Kurta with Churidar',
+    'Jacquard Silk Blend Nehru Jacket & Kurta Set',
+  ],
+  'Luxury Watches': [
+    'Chronograph Quartz Stainless Steel Dial Watch',
+    'Sunray Dial Roman Numeral Leather Strap Watch',
+  ],
+  'Activewear': [
+    'Dry-Fit Moisture Wicking Gym Training T-Shirt',
+    'Athletic Stretch Joggers with Zipper Pockets',
+  ],
+  'Wallets & Belts': [
+    'Top-Grain Leather Bi-Fold RFID Protected Wallet',
+    'Reversible Formal Leather Belt with Silver Buckle',
+  ],
+
+  // Home, Kitchen & Furniture
+  'Non-Stick Cookware': [
+    'German 5-Layer Granite Non-Stick Fry Pan with Lid',
+    'Hard Anodized Induction Base Tri-Ply Kadhai',
+    'Die-Cast Aluminum Omni Dosa Tawa 28cm',
+  ],
+  'Air Fryers & Microwaves': [
+    'Digital Touch Air Fryer 5.5L (360 Rapid Air Flow)',
+    'Solo Countertop Digital Microwave Oven 24L',
+  ],
+  'Espresso & Coffee Machines': [
+    '15-Bar High Pressure Automatic Espresso Maker & Milk Frother',
+    'Programmable 12-Cup Drip Coffee Brewer with Glass Carafe',
+  ],
+  'Living Room Sofas': [
+    '3-Seater Modern Fabric Sofa with High-Density Foam',
+    'L-Shaped Sectional Reversible Living Room Couch',
+  ],
+  'Orthopedic Mattresses': [
+    'Orthopedic Memory Foam Dual Comfort 6-Inch Mattress',
+    'Natural Latex Pocket Spring Euro Top Mattress',
+  ],
+  'Dinnerware Sets': [
+    'Opalware 33-Piece Scratch-Resistant Dinner Set',
+    'Handcrafted Ceramic Dinner Plates & Bowl Set',
+  ],
+  'Lamps & Home Decor': [
+    'Touch Control Nordic Bedside Table Lamp with USB',
+    'Modern Ambient LED Pendant Ceiling Light',
+  ],
+
+  // Beauty & Grooming
+  'Vitamin C & Anti-Aging Serums': [
+    '20% Vitamin C Radiance Glow Serum with Hyaluronic Acid',
+    '1% Retinol Night Repair Anti-Aging Serum with Peptides',
+  ],
+  'Luxury Perfumes & EDP': [
+    'French Eau De Parfum Long-Lasting Luxury Fragrance 100ml',
+    'Smoky Oud & Amber Intense EDP for Men & Women',
+  ],
+  'Beard Trimmers & Shavers': [
+    'Cordless Waterproof Beard Trimmer with Titanium Blades',
+    '3D Rotary Wet & Dry Electric Shaver with Pop-Up Trimmer',
+  ],
+  'Hair Styling & Shampoos': [
+    'Moroccan Argan Oil Hair Mask & Deep Conditioning Treatment',
+    'Sulfate-Free Keratin Smooth Botanical Shampoo 400ml',
+  ],
+  'Makeup Palettes & Lipsticks': [
+    'Matte Liquid Waterproof Long-Stay Lipstick Pack of 4',
+    '18-Color High Pigment Eyeshadow Palette Kit',
+  ],
+  'Organic Face Washes': [
+    'Brightening Vitamin C & Turmeric Foaming Face Wash 150ml',
+    'Salicylic Acid & Green Tea Pore Clearing Face Cleanser',
+  ],
+
+  // Grocery
+  'Premium Dry Fruits & Nuts': [
+    'Premium California Jumbo Almonds (100% Natural 1kg)',
+    'Whole Cashews & Afghani Seedless Black Raisins 1kg Pack',
+  ],
+  'Pure Cow Ghee & Cold Pressed Oils': [
+    'Vedic Bilona A2 Desi Cow Ghee (Glass Jar 1 Litre)',
+    'Cold-Pressed Extra Virgin Coconut Oil (1 Litre)',
+  ],
+  'Organic Spices & Masalas': [
+    'Organic Kashmiri Saffron Kesar (Grade A+ 1g Box)',
+    'Pure Lakadong Turmeric Powder with High Curcumin 500g',
+  ],
+  'Artisanal Coffee & Tea': [
+    'Estate Dark Roast 100% Arabica Coffee Beans 500g',
+    'First Flush Darjeeling Whole Leaf Green Tea 250g',
+  ],
+  'Vadodara Sweets & Farsan': [
+    'Authentic Vadodara Bhakarwadi & Sev Khamani Crisp Pack 800g',
+    'Traditional Kaju Katli & Dry Fruit Ladoo Gift Box 500g',
+  ],
+  'Breakfast Cereals & Granola': [
+    'Crunchy Roasted Almond & Dark Chocolate Granola 500g',
+    'Organic Rolled Oats Whole Grain Breakfast Pack 1kg',
+  ],
+
+  // Sports & Fitness
+  'Adjustable Dumbbells & Barbells': [
+    'Hexagonal Rubberized Dumbbell Pair (10kg Each)',
+    'Adjustable Quick-Select Weight Dumbbell Set (24kg)',
+  ],
+  'Motorized Treadmills': [
+    '4.0 HP Motorized Folding Treadmill with LCD Display',
+    'Under-Desk Walking Pad Cardio Treadmill with Remote',
+  ],
+  'Eco Yoga Mats': [
+    'High-Density Anti-Tear Eco-Friendly Yoga Mat (6mm)',
+    'Non-Slip Alignment Line Exercise Fitness Mat',
+  ],
+  'English Willow Cricket Bats': [
+    'Grade 1 English Willow Power Punch Cricket Bat',
+    'Full Grain Kashmir Willow Hard Tennis Cricket Bat',
+  ],
+  'FIFA Footballs': [
+    'FIFA Quality Pro Match Grade All-Weather Football (Size 5)',
+    'High-Durability Thermally Bonded Soccer Ball',
+  ],
+  'Hybrid Bicycles & Gear': [
+    '21-Speed Shimano Gear Mountain Hybrid Bicycle with Dual Disc Brakes',
+    'Lightweight Urban Commuter Road Bicycle with Alloy Frame',
+  ],
+
+  // Books
+  'National Bestsellers': [
+    'Atomic Habits & Psychology of Money Bestseller Paperback Set',
+    'Sapiens: A Brief History of Humankind (Deluxe Illustrated Edition)',
+  ],
+  'Personal Finance & Self-Help': [
+    'The Psychology of Money: Timeless Lessons on Wealth',
+    'Deep Work: Rules for Focused Success in a Distracted World',
+  ],
+  'Tech, AI & Programming': [
+    'Designing Data-Intensive Applications & Modern AI Architecture',
+    'Clean Code: A Handbook of Agile Software Craftsmanship',
+  ],
+  'Exam Preparation (UPSC, GATE)': [
+    'Comprehensive General Studies & Aptitude Manual (Latest Edition)',
+    'Previous 25 Years Solved Question Papers with Explanations',
+  ],
+  'Indian Mythology & Fiction': [
+    'The Palace of Illusions & Indian Epic Mythology Collector Edition',
+    'Immortal India: Ancient Wisdom & Historical Chronicles',
+  ],
+  'Children Story Books': [
+    'Bedtime Illustrated Classic Panchatantra Stories for Children',
+    'Illustrated World Fairy Tales & Moral Stories Hardcover Boxset',
+  ],
+
+  // Toys & Baby Care
+  'STEM Educational Robotics': [
+    'Programmable STEM Robotics & Electronics Kit with App Control',
+    'DIY Solar Powered Science Experiment Robot Kit',
+  ],
+  'Remote Control High-Speed Drones': [
+    '4K Ultra HD Dual Camera GPS Foldable RC Drone',
+    'Altitude Hold Long Range Beginner Quadcopter Drone with 2 Batteries',
+  ],
+  'LEGO Architecture Sets': [
+    'Iconic Skyline Architecture Modular Construction Building Blocks (1200 Pcs)',
+    'Space Exploration Mars Rover Educational Building Brick Set',
+  ],
+  'Premium Baby Strollers': [
+    'Ultra-Lightweight One-Hand Foldable Baby Stroller Pram with Canopy',
+    'Reversible 3-in-1 Travel System Baby Carriage with Bassinet',
+  ],
+  'Eco Diapers & Wipes': [
+    'Organic Bamboo Cotton Baby Swaddle Blankets (Pack of 3)',
+    'Ultra-Soft Pure Water Newborn Baby Wipes (Pack of 4)',
+  ],
+  'Wooden Board Games': [
+    'Handcrafted Sheesham Wooden Chess & Checkers Board Set (14-Inch)',
+    'Classic Carrom Board with Coins, Striker & Powder (32-Inch)',
+  ],
+
+  // Automotive
+  'Smart 4K Dashcams': [
+    '4K Ultra HD Dual Front & Rear Dashcam with Sony Night Vision',
+    'Wide Angle 170-Degree Car Security Camera with G-Sensor & WiFi',
+  ],
+  'DOT Certified Riding Helmets': [
+    'DOT & ISI Certified Full-Face Aerodynamic Motorcycle Helmet with Dual Visor',
+    'Matte Black Bluetooth-Ready Street Biker Helmet with Anti-Fog Shield',
+  ],
+  'Bosch Cordless Drill Sets': [
+    '18V Brushless Cordless Lithium-Ion Hammer Drill & Driver Toolkit',
+    'Rechargeable Impact Screwdriver Set with 32 Accessories & Hard Case',
+  ],
+  'Car High-Pressure Washers': [
+    '1800W High Pressure Car Foam Jet Washer Machine (140 Bar)',
+    'Portable Battery Powered Cordless Pressure Car Washer Gun',
+  ],
+  'Tyre Inflators & Emergency Kits': [
+    'Digital Portable Tyre Inflator with Auto-Shutoff & Emergency LED Light',
+    'All-In-One Car Emergency Breakdown Toolkit with Jumper Cables',
+  ],
+
+  // Health
+  '100% Whey Protein Isolate': [
+    '100% Pure Whey Protein Isolate (2kg Rich Chocolate Fudge / 27g Protein)',
+    'Hydrolyzed Grass-Fed Whey Protein Powder (Zero Sugar / Low Carb)',
+  ],
+  'Daily Multivitamins & Zinc': [
+    'Daily High-Potency Multivitamins with Zinc, Vitamin D3, B12 & Minerals',
+    'Plant-Based Organic Immunity & Vitality Multivitamin Booster',
+  ],
+  'Digital Blood Pressure Monitors': [
+    'Automatic Digital Upper Arm Blood Pressure Monitor with Large Display',
+    'Voice Guided Accurate Digital BP & Heart Rate Checker',
+  ],
+  'Ayurvedic Immunity Boosters': [
+    'Pure Himalayan Shilajit Resin with Gold Dust & Fulvic Acid (20g)',
+    'Organic KSM-66 Ashwagandha Stress Relief & Vitality Capsules',
+  ],
+  'First Aid Medical Kits': [
+    'Emergency Compact First Aid Kit (120 Medical Items in Waterproof Bag)',
+    'Wall-Mountable Family & Office Medical Emergency Box',
+  ],
+
+  // Office
+  'High-Back Ergonomic Chairs': [
+    'High-Back Ergonomic Mesh Office Desk Chair with 3D Armrests & Lumbar Support',
+    'Executive Breathable High-Density Reclining Desk Chair with Headrest',
+  ],
+  'Motorized Standing Desks': [
+    'Dual-Motor Electric Height Adjustable Standing Desk (140 x 70 cm Solid Wood Top)',
+    'Ergonomic Memory Preset Sit-Stand Computer Workstation Desk',
+  ],
+  'Premium Fountain Pens': [
+    'Fine Nib Luxury Lacquer Metallic Fountain Pen with Ink Converter',
+    'Handcrafted Executive Rollerball Pen in Deluxe Gift Box',
+  ],
+  'Wireless Laser Printers': [
+    'High-Yield Wireless Color Laser All-In-One Printer & Scanner',
+    'Compact Auto-Duplex Monochrome Office Laser Printer',
+  ],
+  'Leather Notebooks & Organizers': [
+    'Hardcover Dotted Bullet Journal Notebook with 120gsm Thick Bleed-Proof Paper',
+    'Top-Grain Leather Refillable Travel Planner & Diary Organizer',
+  ],
 };
 
 // ── Handcrafted Flagship Products ─────────────────────────────────────────────
@@ -1015,137 +1628,33 @@ const HANDCRAFTED_FLAGSHIPS: MockProduct[] = [
 
 function generateComprehensiveCatalog(): MockProduct[] {
   const items: MockProduct[] = [...HANDCRAFTED_FLAGSHIPS];
-
-  // Adjectives and product noun templates per department
-  const namingTemplates: Record<string, string[]> = {
-    electronics: [
-      'Pro Wireless Earbuds with ANC & Spatial Audio',
-      'Ultra HD 4K Smart Android TV with Dolby Vision',
-      'Fast-Charge 20000mAh Power Bank (65W Power Delivery)',
-      'Mechanical RGB Gaming Keyboard (Hot-Swappable Switches)',
-      'Ergonomic Wireless Mouse with 4000 DPI Optical Sensor',
-      '4K 60FPS Streaming Webcam with Dual Noise Reduction Mic',
-      'Portable Waterproof Bluetooth Speaker (24H Playtime)',
-      '1TB High-Speed External NVMe SSD USB 3.2',
-      'Smart Fitness Band with SpO2 & 24x7 Heart Rate',
-      'Magnetic Wireless Charging Stand 3-in-1',
-    ],
-    fashion: [
-      'Handblock Printed Pure Cotton Daily Wear Kurta',
-      'Banarasi Art Silk Zari Border Festive Saree',
-      'Floral Chiffon Wrap Midi Dress with Belt',
-      'Embroidered Organza Dupatta with Gota Patti Border',
-      'Block Heel Mules with Cushioned Footbed',
-      'Vegan Leather Structured Tote Bag with Coin Pouch',
-      'Kundan Pearl Choker Necklace Set with Earrings',
-      'A-Line Rayon Festive Anarkali with Pants Set',
-    ],
-    'mens-fashion': [
-      'Slim Fit Oxford Cotton Solid Casual Shirt',
-      'Stretch Denim Tapered Regular Fit Jeans',
-      'Pure Linen Breathable Mandarin Collar Kurta',
-      'Athletic Running Shoes with Cushion Air Midsole',
-      'Stainless Steel Chronograph Quartz Wristwatch',
-      'Top-Grain Leather Bi-Fold RFID Protected Wallet',
-      'Dry-Fit Gym Training Trackpants with Zipper Pockets',
-      'Classic Reversible Leather Formal Belt',
-    ],
-    'home-kitchen': [
-      'Hard Anodized Non-Stick Tri-Ply Fry Pan with Lid',
-      'Digital Touch Air Fryer (4.5L with 8 Preset Modes)',
-      '15-Bar High Pressure Automatic Espresso Maker',
-      'Orthopedic Memory Foam Mattress (Dual Comfort 6-Inch)',
-      'Solid Sheesham Wood Coffee Table with Storage',
-      'Opalware 33-Piece Scratch-Resistant Dinner Set',
-      'Touch Control Nordic Bedside Table Lamp with USB',
-      'Cast Iron Deep Dutch Oven Cookpot with Enamel Finish',
-    ],
-    beauty: [
-      '20% Vitamin C Radiance Glow Serum with Hyaluronic Acid',
-      'French Eau De Parfum Long-Lasting Luxury Fragrance',
-      'Cordless Waterproof Beard Trimmer with Titanium Blades',
-      'Moroccan Argan Oil Hair Mask & Deep Conditioning Treatment',
-      'Matte Liquid Waterproof Lipstick Set (Pack of 4)',
-      'Gentle Salicylic Acid Exfoliating Face Cleanser',
-      'Mineral Sunscreen SPF 50 PA++++ (Zero White Cast)',
-    ],
-    grocery: [
-      'Premium California Jumbo Almonds (100% Natural 1kg)',
-      'Pure Desi Cow Ghee (Bilona Vedic Method 1 Litre)',
-      'Organic Kashmiri Saffron Kesar (Grade A+ 1g)',
-      'Estate Dark Roast Arabica Coffee Beans (Freshly Ground)',
-      'Authentic Vadodara Bhakarwadi & Sev Khamani Crisp Pack',
-      'Organic Raw Cold-Pressed Virgin Coconut Oil',
-      'Unprocessed Wild Forest Honey with Honeycomb',
-    ],
-    sports: [
-      'Rubber Coated Hexagonal Dumbbells Pair (10kg Each)',
-      'Heavy Duty Motorized Folding Treadmill with LCD Display',
-      'High-Density Eco-Friendly Anti-Tear Yoga Mat (6mm)',
-      'Grade 1 English Willow Power Punch Cricket Bat',
-      'Match Grade FIFA Approved All-Weather Football',
-      '21-Speed Mountain Hybrid Bicycle with Dual Disc Brakes',
-      'Carbon Fiber Lightweight Badminton Racket Set',
-    ],
-    books: [
-      'Atomic Habits: Proven Way to Build Good Habits (Paperback)',
-      'The Psychology of Money: Timeless Lessons on Wealth',
-      'Deep Work: Rules for Focused Success in a Distracted World',
-      'Zero to One: Notes on Startups & How to Build the Future',
-      'Thinking, Fast and Slow by Daniel Kahneman',
-      'Sapiens: A Brief History of Humankind (Illustrated)',
-      'The Art of War & Meditations Collector Edition Boxset',
-    ],
-    'toys-games': [
-      'Programmable Robotics STEM Learning Kit with App Control',
-      '4K GPS Dual Camera Foldable RC Drone for Beginners',
-      'Space Exploration Modular Construction Building Blocks',
-      'Lightweight Reversible Foldable Baby Stroller Pram',
-      'Organic Bamboo Cotton Baby Swaddle Blankets (Pack of 3)',
-      'Classic Handcrafted Wooden Chess & Checkers Board Set',
-    ],
-    automotive: [
-      '4K Ultra HD Dual Dash Cam with GPS & Night Vision',
-      'ISI Certified Full Face Aerodynamic Motorcycle Helmet',
-      '18V Cordless Lithium-Ion Hammer Drill & Screwdriver Kit',
-      '1800W High Pressure Car Foam Jet Washer Machine',
-      'Digital Portable Tyre Inflator with Auto-Shutoff & LED',
-      'Ceramic Coating Hydrophobic Paint Protection Kit',
-    ],
-    health: [
-      '100% Isolate Whey Protein Powder (2kg Rich Chocolate)',
-      'Daily High-Potency Multivitamins with Zinc, D3 & B12',
-      'Automatic Digital Upper Arm Blood Pressure Monitor',
-      'Pure Himalayan Shilajit Resin with Gold Dust (20g)',
-      'Ayurvedic Ashwagandha KSM-66 Stress Relief Capsules',
-      'Emergency Compact First Aid Kit (120 Medical Items)',
-    ],
-    office: [
-      'Ergonomic Mesh Office Chair with Lumbar Support & Headrest',
-      'Electric Height Adjustable Standing Desk (140 x 70 cm)',
-      'Fine Nib Luxury Lacquer Fountain Pen with Converter',
-      'High-Yield Wireless Color Laser All-In-One Printer',
-      'Hardcover Dotted Bullet Journal Notebook with 120gsm Paper',
-      'Aluminum Dual Monitor Arm Desk Mount Bracket',
-    ],
-  };
-
   let counter = 100;
 
   // Generate 85 products per department to reach 1,000+ total
   for (const dept of AMAZON_DEPARTMENTS) {
     const brands = BRAND_DICTIONARY[dept.id] || ['NexMart Global', 'AmazonBasics'];
-    const photos = PHOTO_BANK[dept.id] || PHOTO_BANK.electronics;
-    const templates = namingTemplates[dept.id] || namingTemplates.electronics;
     const subcats = dept.subcategories;
 
     for (let i = 0; i < 85; i++) {
       counter++;
       const brand = brands[i % brands.length];
-      const template = templates[i % templates.length];
       const subcategory = subcats[i % subcats.length];
+
+      // Retrieve EXACT curated photos for this specific subcategory
+      const photos =
+        SUBCATEGORY_PHOTO_BANK[subcategory] ||
+        SUBCATEGORY_PHOTO_BANK['Smartphones'];
+
       const photo = photos[i % photos.length];
       const secondaryPhoto = photos[(i + 1) % photos.length];
+
+      // Retrieve EXACT naming template for this specific subcategory
+      const templates =
+        SUBCATEGORY_NAME_TEMPLATES[subcategory] || [
+          `${subcategory} Pro Series Edition`,
+          `${subcategory} High-Performance Edition`,
+        ];
+      const template = templates[i % templates.length];
 
       // Base price calculations
       let basePrice = 499;
@@ -1164,11 +1673,11 @@ function generateComprehensiveCatalog(): MockProduct[] {
       if (basePrice < 199) basePrice = 199;
 
       const mrp = Math.round(basePrice * (1.25 + (i % 5) * 0.12));
-      const rating = Number((4.1 + ((i * 7) % 9) * 0.1).toFixed(1));
+      const rating = Number((4.2 + ((i * 7) % 8) * 0.1).toFixed(1));
       const reviewCount = 250 + (i * 347) % 28000;
 
-      const fullName = `${brand} ${subcategory} - ${template} (Series ${i + 1})`;
-      const slug = fullName
+      const fullName = `${brand} ${template} (Series ${i + 1})`;
+      const slug = `${brand}-${subcategory}-${template}-series-${i + 1}`
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-|-$)/g, '');
@@ -1178,25 +1687,47 @@ function generateComprehensiveCatalog(): MockProduct[] {
       let variantLabel = 'Option Edition';
       let variantOptions: ProductVariantOption[] = [
         { label: 'Standard Edition', price: basePrice, mrp: mrp, stockQty: 30, isDefault: true },
-        { label: 'Premium Edition', price: Math.round(basePrice * 1.25), mrp: Math.round(mrp * 1.25), stockQty: 18 },
+        { label: 'Pro Edition (Deluxe)', price: Math.round(basePrice * 1.25), mrp: Math.round(mrp * 1.25), stockQty: 18 },
       ];
 
-      if (dept.id === 'electronics') {
+      if (subcategory.includes('Phone') || subcategory.includes('Tablet') || subcategory.includes('Laptops')) {
         variantType = 'storage';
         variantLabel = 'Configuration Model';
         variantOptions = [
-          { label: 'Standard (Base)', price: basePrice, mrp: mrp, stockQty: 30, isDefault: true },
-          { label: 'Pro (Max Storage/RAM)', price: Math.round(basePrice * 1.3), mrp: Math.round(mrp * 1.3), stockQty: 15 },
+          { label: '128GB Storage (Base)', price: basePrice, mrp: mrp, stockQty: 30, isDefault: true },
+          { label: '256GB Storage (Pro)', price: Math.round(basePrice * 1.2), mrp: Math.round(mrp * 1.2), stockQty: 25 },
+          { label: '512GB Storage (Max)', price: Math.round(basePrice * 1.45), mrp: Math.round(mrp * 1.45), stockQty: 10 },
         ];
       } else if (dept.id === 'fashion' || dept.id === 'mens-fashion') {
-        variantType = 'apparel-size';
-        variantLabel = 'Size (India / Standard)';
-        variantOptions = [
-          { label: 'S (Small)', price: basePrice, mrp: mrp, stockQty: 25 },
-          { label: 'M (Medium)', price: basePrice, mrp: mrp, stockQty: 45, isDefault: true },
-          { label: 'L (Large)', price: basePrice, mrp: mrp, stockQty: 30 },
-          { label: 'XL (Extra Large)', price: Math.round(basePrice * 1.08), mrp: mrp, stockQty: 15 },
-        ];
+        if (subcategory.includes('Shoe') || subcategory.includes('Footwear') || subcategory.includes('Sneakers')) {
+          variantType = 'shoe-size';
+          variantLabel = 'Shoe Size (UK / India)';
+          variantOptions = [
+            { label: 'UK 6', price: basePrice, mrp: mrp, stockQty: 20 },
+            { label: 'UK 7', price: basePrice, mrp: mrp, stockQty: 35 },
+            { label: 'UK 8', price: basePrice, mrp: mrp, stockQty: 45, isDefault: true },
+            { label: 'UK 9', price: basePrice, mrp: mrp, stockQty: 30 },
+            { label: 'UK 10', price: Math.round(basePrice * 1.05), mrp: mrp, stockQty: 15 },
+          ];
+        } else if (subcategory.includes('Jeans') || subcategory.includes('Trousers')) {
+          variantType = 'apparel-size';
+          variantLabel = 'Waist Size (Inches)';
+          variantOptions = [
+            { label: '30 Waist', price: basePrice, mrp: mrp, stockQty: 25 },
+            { label: '32 Waist', price: basePrice, mrp: mrp, stockQty: 40, isDefault: true },
+            { label: '34 Waist', price: basePrice, mrp: mrp, stockQty: 30 },
+            { label: '36 Waist', price: Math.round(basePrice * 1.05), mrp: mrp, stockQty: 15 },
+          ];
+        } else {
+          variantType = 'apparel-size';
+          variantLabel = 'Size (India / Standard)';
+          variantOptions = [
+            { label: 'S (Small)', price: basePrice, mrp: mrp, stockQty: 25 },
+            { label: 'M (Medium)', price: basePrice, mrp: mrp, stockQty: 45, isDefault: true },
+            { label: 'L (Large)', price: basePrice, mrp: mrp, stockQty: 30 },
+            { label: 'XL (Extra Large)', price: Math.round(basePrice * 1.08), mrp: mrp, stockQty: 15 },
+          ];
+        }
       } else if (dept.id === 'home-kitchen') {
         variantType = 'capacity';
         variantLabel = 'Size & Capacity';
@@ -1204,12 +1735,19 @@ function generateComprehensiveCatalog(): MockProduct[] {
           { label: 'Medium (Family Size)', price: basePrice, mrp: mrp, stockQty: 35, isDefault: true },
           { label: 'Large (Deluxe Set)', price: Math.round(basePrice * 1.35), mrp: Math.round(mrp * 1.35), stockQty: 20 },
         ];
-      } else if (dept.id === 'beauty' || dept.id === 'grocery') {
+      } else if (dept.id === 'beauty' || dept.id === 'grocery' || dept.id === 'health') {
         variantType = 'volume';
         variantLabel = 'Pack Size';
         variantOptions = [
-          { label: 'Regular Pack', price: basePrice, mrp: mrp, stockQty: 50, isDefault: true },
+          { label: 'Standard Pack', price: basePrice, mrp: mrp, stockQty: 50, isDefault: true },
           { label: 'Family Mega Saver Pack', price: Math.round(basePrice * 1.8), mrp: Math.round(mrp * 1.8), stockQty: 25 },
+        ];
+      } else if (dept.id === 'sports') {
+        variantType = 'weight';
+        variantLabel = 'Size & Weight Option';
+        variantOptions = [
+          { label: 'Standard Fit', price: basePrice, mrp: mrp, stockQty: 40, isDefault: true },
+          { label: 'Pro Match Grade', price: Math.round(basePrice * 1.3), mrp: Math.round(mrp * 1.3), stockQty: 20 },
         ];
       }
 
@@ -1227,32 +1765,32 @@ function generateComprehensiveCatalog(): MockProduct[] {
         reviewCount,
         image: photo,
         images: [photo, secondaryPhoto],
-        description: `Premium authentic ${fullName}. Engineered for durability, modern functionality, and verified genuine by NexMart Authorized Stores.`,
+        description: `Premium authentic ${fullName}. Designed for high performance, genuine durability, and backed by manufacturer warranty. Verified genuine by NexMart Authorized Stores with express dispatch from Vadodara Hub.`,
         shortDescription: `Original ${brand} ${subcategory} crafted for premium performance and durability.`,
         highlights: [
           `Original 100% Genuine ${brand} Craftsmanship`,
           'Free Standard Shipping to Vadodara & Across India',
           '7-Day No-Questions-Asked Return & Instant Refund Guarantee',
-          'Includes Official Manufacturer Warranty & GST Invoice',
+          'Includes Official Manufacturer Warranty & GST Tax Invoice',
         ],
         variantType,
         variantLabel,
         variantOptions,
         colors: [
-          { name: 'Standard Finish', hex: '#1C1C1C', image: photo },
-          { name: 'Slate Gray', hex: '#6B7280', image: secondaryPhoto },
+          { name: 'Primary Finish', hex: '#1C1C1C', image: photo },
+          { name: 'Classic Slate', hex: '#6B7280', image: secondaryPhoto },
         ],
         specs: {
           Brand: brand,
           Category: dept.name,
-          Department: subcategory,
+          Subcategory: subcategory,
           ModelYear: '2026',
-          Warranty: '1 Year Brand Warranty',
+          Warranty: '1 Year Official Brand Warranty',
           Origin: 'Vadodara Hub Fulfilled',
         },
         manufacturingDetails: {
           countryOfOrigin: 'India (Vadodara Fulfilled)',
-          material: 'Standard Grade Authentic',
+          material: 'Premium Authentic Grade',
           weight: '450 g',
         },
         vendorName: `${brand} Authorized Brand Store`,
